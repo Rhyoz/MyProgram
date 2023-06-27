@@ -127,11 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractSpiroClass.h" />
+    <ClInclude Include="AbstractClass.h" />
+    <ClInclude Include="SpiroBendClass.h" />
     <ClInclude Include="Header.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AbstractSpiroClass.cpp" />
+    <ClCompile Include="SpiroBendClass.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

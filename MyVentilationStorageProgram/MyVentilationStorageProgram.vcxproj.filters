@@ -18,7 +18,10 @@
     <ClInclude Include="Header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractSpiroClass.h">
+    <ClInclude Include="SpiroBendClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -26,7 +29,7 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AbstractSpiroClass.cpp">
+    <ClCompile Include="SpiroBendClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
