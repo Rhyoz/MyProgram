@@ -1,5 +1,6 @@
 #include "SpiroBendClass.h"
 
+// ----------------------------------	.TXT document functions	----------------------------------
 
 void SpiroBendClass::TextDocumentCreator(AbstractClass& Obj)
 {
@@ -8,6 +9,7 @@ void SpiroBendClass::TextDocumentCreator(AbstractClass& Obj)
 	{	
 		for (size_t i = 0; i < NameArraySize; i++)
 		{
+			Amount[i] = 0;
 			OutputFile << Name[i]  << Amount[i] << std::endl;
 		}
 		OutputFile.close();
@@ -23,7 +25,7 @@ void SpiroBendClass::TextDocumentCreator(AbstractClass& Obj)
 		-	The file system could be read-only, which would prevent any new files from being created
 		*/	
 
-		std::cerr << "File creation error - Unable to create the file SpiroBendClass.txt" << std::endl;
+		std::cerr << "File creation Error - Unable to create the file SpiroBendClass.txt" << std::endl;
 	}
 }
 
@@ -44,7 +46,43 @@ void SpiroBendClass::TextDocumentReader(AbstractClass& Obj)
 	}
 	else
 	{
-		std::cerr << "File read error - Unable to open the file SpiroBendClass.txt" << std::endl;
+		std::cerr << "File read Error - Unable to open the file SpiroBendClass.txt" << std::endl;
 	}
 
+}
+
+void SpiroBendClass::TextDocumentWriter(AbstractClass& Obj)
+{
+	std::ofstream OutputFile("SpiroBendClass.txt");
+	if (OutputFile.is_open())
+	{
+		for (size_t i = 0; i < NameArraySize; i++)
+		{
+			OutputFile << Name[i] << " " << Amount[i] << std::endl;
+		}
+		OutputFile.close();
+	}
+	else
+	{
+		std::cerr << "File write Error - Unable to write to the file SpiroBendClass.txt" << std::endl;
+	}
+}
+
+// ----------------------------------	increase and decrease functions	----------------------------------
+
+void SpiroBendClass::Increaser(AbstractClass& Obj, int* Amount, size_t index)
+{
+	if (index < NameArraySize)
+	{
+		int UserNum{};
+		std::cin >> UserNum;	// Number to increase the Amount[index] by.
+
+		Amount[index] += UserNum;	//	increments the original with the provided number.
+
+		TextDocumentWriter(Obj);
+	}
+	else
+	{
+		std::cerr << "Error - failed to increase the item." << std::endl;
+	}
 }
