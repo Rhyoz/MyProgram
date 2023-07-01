@@ -25,7 +25,7 @@ void SpiroBendClass::TextDocumentCreator(AbstractClass& Obj)
 		-	The file system could be read-only, which would prevent any new files from being created
 		*/	
 
-		std::cerr << "File creation Error - Unable to create the file SpiroBendClass.txt" << std::endl;
+		std::cerr << "Error - Unable to create the file SpiroBendClass.txt" << std::endl;
 	}
 }
 
@@ -46,7 +46,7 @@ void SpiroBendClass::TextDocumentReader(AbstractClass& Obj)
 	}
 	else
 	{
-		std::cerr << "File read Error - Unable to open the file SpiroBendClass.txt" << std::endl;
+		std::cerr << "Error - Unable to open the file SpiroBendClass.txt" << std::endl;
 	}
 
 }
@@ -64,7 +64,7 @@ void SpiroBendClass::TextDocumentWriter(AbstractClass& Obj)
 	}
 	else
 	{
-		std::cerr << "File write Error - Unable to write to the file SpiroBendClass.txt" << std::endl;
+		std::cerr << "Error - Unable to write to the file SpiroBendClass.txt" << std::endl;
 	}
 }
 
@@ -72,10 +72,17 @@ void SpiroBendClass::TextDocumentWriter(AbstractClass& Obj)
 
 void SpiroBendClass::Increaser(AbstractClass& Obj, int* Amount, size_t index)
 {
+	if (Amount == nullptr)
+	{
+		std::cerr << "Error - Amount is a null pointer." << std::endl;
+		return;
+	}
+
 	if (index < NameArraySize)
 	{
 		int UserNum{};
 		std::cin >> UserNum;	// Number to increase the Amount[index] by.
+
 
 		Amount[index] += UserNum;	//	increments the original with the provided number.
 
@@ -84,5 +91,43 @@ void SpiroBendClass::Increaser(AbstractClass& Obj, int* Amount, size_t index)
 	else
 	{
 		std::cerr << "Error - failed to increase the item." << std::endl;
+	}
+}
+
+void SpiroBendClass::Decreaser(AbstractClass& Obj, int* Amount, size_t index)
+{
+	
+	if (Amount == nullptr)
+	{
+		std::cerr << "Error - Amount is a null pointer." << std::endl;
+		return;
+	}
+	
+	if (index < NameArraySize)
+	{
+		int UserNum{};
+		std::cin >> UserNum;			// Number to decrease the Amount[index] by.
+		
+		if (UserNum < 0)
+		{
+			UserNum = -UserNum;
+		}
+
+		if (Amount[index] >= UserNum)
+		{
+			Amount[index] -= UserNum;	//	Decrease the original with the provided number.
+			TextDocumentWriter(Obj);
+		}
+		else
+		{
+			Amount[index] = 0;
+			TextDocumentWriter(Obj);
+		}
+
+		
+	}
+	else
+	{
+		std::cerr << "Error - failed to decrease the item." << std::endl;
 	}
 }

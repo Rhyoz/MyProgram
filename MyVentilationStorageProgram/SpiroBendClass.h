@@ -25,15 +25,19 @@ public:
 
 	// ----------------------------------	increase and decrease functions	----------------------------------
 	
-	void Increaser(AbstractClass& Obj, int* Amount, size_t index);
+	// Increases the selected item, expects class object, Amount array(obj.Amount) and the index to change.
+	void Increaser(AbstractClass& Obj, int* Amount, size_t index) override;
+
+	// Decreases the selected item, expects class object, Amount array(obj.Amount) and the index to change.
+	void Decreaser(AbstractClass& Obj, int* Amount, size_t index) override;
 
 
 	//	Array of dimention names:	--	fill inn names and array size as needed for the specific class
 	std::string Name[3] = 
 	{ 
-		"O-100: " ,
-		"O-125: " ,
-		"O-160: "
+		"O-100,90°: " ,
+		"O-125,90°: " ,
+		"O-160,90°: "
 	};
 	size_t NameArraySize = sizeof(Name) / sizeof(Name[0]);
 

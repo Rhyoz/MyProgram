@@ -6,7 +6,7 @@ int main()
 {
 	SpiroBendClass obj;	//creates a class object
 
-	//obj.TextDocumentCreator(obj);	//	creates a default text document with names and 0 as amount
+	obj.TextDocumentCreator(obj);	//	creates a default text document with names and 0 as amount
 
 	//obj.Amount[0] = 99;
 	//obj.TextDocumentWriter(obj);
@@ -23,7 +23,7 @@ int main()
 
 	obj.Increaser(obj, obj.Amount, 1);
 	std::cout << obj.Name[1] << " " << obj.Amount[1] << std::endl;
-
-
+	obj.Decreaser(obj, obj.Amount, 1);
+	std::cout << obj.Name[1] << " " << obj.Amount[1] << std::endl;
 	return 0;
 }
